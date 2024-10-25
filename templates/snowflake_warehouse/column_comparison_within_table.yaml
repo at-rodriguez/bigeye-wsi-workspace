@@ -1,0 +1,9 @@
+---
+source_name: snowflake_warehouse
+name: Column comparison within table
+body: '{{column1}} {{comparison_operator}} {{column2}}'
+return_type: BOOLEAN
+parameters:
+  - column1=COLUMN_REFERENCE
+  - comparison_operator=STRING
+  - column2=COLUMN_REFERENCE
