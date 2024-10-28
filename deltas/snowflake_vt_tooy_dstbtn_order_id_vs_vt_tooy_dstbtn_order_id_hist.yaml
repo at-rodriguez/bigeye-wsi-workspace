@@ -1,0 +1,30 @@
+type: DELTA_CONFIGURATION_FILE
+deltas:
+- delta_name: snowflake_warehouse.Bigeye Virtual Schema.TOOY_DSTBTN_ORDER_ID <> snowflake_warehouse.Bigeye Virtual Schema.TOOY_DSTBTN_ORDER_ID_HIST
+  fq_source_table_name: snowflake_warehouse.Bigeye Virtual Schema.TOOY_DSTBTN_ORDER_ID
+  cron_schedule:
+    name: Daily at 00:00 CDT
+  notification_channels:
+    - email: operations@somecompany.com
+    - slack: '#operations'
+  target_table_comparisons:
+  - fq_target_table_name: snowflake_warehouse.Bigeye Virtual Schema.TOOY_DSTBTN_ORDER_ID_HIST
+    delta_column_mapping:
+    - source_column_name: COMPOSITE_ATTRIBUTE
+      target_column_name: COMPOSITE_ATTRIBUTE
+      metrics:      
+      - type: PREDEFINED
+        predefined_metric: COUNT_DUPLICATES
+    - source_column_name: ORDER_ID
+      target_column_name: ORDER_ID
+      metrics:      
+      - type: PREDEFINED
+        predefined_metric: COUNT_DUPLICATES
+    all_column_metrics:
+      - type: PREDEFINED
+        predefined_metric: COUNT_NULL
+    group_bys: []
+    source_filters: []
+    target_filters: []
+    tolerance: 0.50
+  
