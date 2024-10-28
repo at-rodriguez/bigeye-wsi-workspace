@@ -50,6 +50,6 @@ jobs:
           echo "$BIGEYE_CREDENTIALS" >> credentials.ini
           for file in ${CHANGED_FILES}; do
             echo "Creating template from ${file}"            
-            bigeye deltas create-delta --bigeye_conf credentials.ini --config_file config.ini --delta_conf "${file}"
+            bigeye deltas create-delta -w sbx_dev --bigeye_conf credentials.ini --config_file config.ini --delta_conf "${file}"
           done
           

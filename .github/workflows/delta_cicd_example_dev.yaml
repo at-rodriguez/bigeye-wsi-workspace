@@ -48,6 +48,6 @@ jobs:
           echo "$BIGEYE_CONFIG" >> config.ini
           echo "$BIGEYE_CREDENTIALS" >> credentials.ini
           for file in ${CHANGED_FILES}; do
-            bigeye deltas cicd --bigeye_conf credentials.ini --config_file config.ini -dcc "${file}"
+            bigeye deltas cicd -w sbx_dev --bigeye_conf credentials.ini --config_file config.ini -dcc "${file}"
           done
       
