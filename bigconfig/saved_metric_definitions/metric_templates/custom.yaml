@@ -1,0 +1,11 @@
+type: BIGCONFIG_FILE
+
+saved_metric_definitions:
+  metrics:
+    # 1
+    - saved_metric_id: COMPARE_COLUMNS_WITHIN_TABLE
+      metric_type:
+        type: TEMPLATE
+        template_id: 934
+        aggregation_type: PERCENT
+        template_name: Column comparison within table
