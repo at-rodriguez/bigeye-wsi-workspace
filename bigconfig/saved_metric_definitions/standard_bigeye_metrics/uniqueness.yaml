@@ -17,7 +17,7 @@ saved_metric_definitions:
       metric_type:
         type: PREDEFINED
         predefined_metric: COUNT_DUPLICATES
-      metric_name: Duplicates (#)
+      metric_name: Duplicates Count
       description: Alert on any sudden changes in the number of duped values.
       threshold:
         type: AUTO

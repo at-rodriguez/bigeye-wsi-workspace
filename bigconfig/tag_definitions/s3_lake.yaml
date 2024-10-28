@@ -1,5 +1,0 @@
-type: BIGCONFIG_FILE
-tag_definitions:
-  - tag_id: ALL_S3_TABLES
-    column_selectors:
-      - name: "s3_lake.*.*.*"
