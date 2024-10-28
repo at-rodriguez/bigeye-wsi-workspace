@@ -38,6 +38,6 @@ jobs:
     
           echo "$BIGEYE_CONFIG" >> config.ini
           echo "$BIGEYE_CREDENTIALS" >> credentials.ini          
-          bigeye bigconfig apply --bigeye_conf credentials.ini --config_file config.ini --input_path bigconfig --recursive --auto_approve 
+          bigeye bigconfig apply -w sbx_dev --bigeye_conf credentials.ini --config_file config.ini --input_path bigconfig --recursive --auto_approve 
 
           

@@ -42,6 +42,6 @@ jobs:
     
           echo "$BIGEYE_CONFIG" >> config.ini
           echo "$BIGEYE_CREDENTIALS" >> credentials.ini          
-          bigeye bigconfig plan --bigeye_conf credentials.ini --config_file config.ini --input_path bigconfig --recursive --cicd_report
+          bigeye bigconfig plan -w sbx_dev --bigeye_conf credentials.ini --config_file config.ini --input_path bigconfig --recursive --cicd_report
 
           
