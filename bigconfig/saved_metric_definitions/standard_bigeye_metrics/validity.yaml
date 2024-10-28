@@ -15,3 +15,12 @@ saved_metric_definitions:
       threshold:
         type: AUTO
         sensitivity: NARROW
+    # 2
+    # User defined
+    - saved_metric_id: COLUMN_CONTAINS_VALUES
+      metric_type:
+        type: PREDEFINED
+        predefined_metric: PERCENT_VALUE_IN_LIST
+      threshold:
+        type: AUTO
+        sensitivity: MEDIUM

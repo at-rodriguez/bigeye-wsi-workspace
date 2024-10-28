@@ -1,0 +1,53 @@
+type: BIGCONFIG_FILE
+
+table_deployments:
+  - collection:
+      name: TOOY Distribution Order
+      notification_channels:
+        - email: operations@bigeye.com
+        - slack: '#operations'
+    deployments:
+      - fq_table_name: snowflake_warehouse.TOOY_DEMO.PROD_REPL.ORDERS
+        columns:
+          - column_name: ORDER_ID
+            metrics:
+              - saved_metric_id: NO_NULLS_ALLOWED
+              - saved_metric_id: UNIQUENESS_REQUIRED
+          - column_name: PAYMENT_METHOD_ID
+            metrics:
+              - saved_metric_id: COLUMN_CONTAINS_VALUES
+                metric_name: Negative Foreign Keys
+                parameters:
+                  - key: list
+                    string_value: "-1"
+                rct_overrides: [ ORDER_TIMESAMP ]
+                lookback:
+                  lookback_type: METRIC_TIME
+                  lookback_window:
+                    interval_type: DAYS
+                    interval_value: 2
+              - saved_metric_id: COMPARE_COLUMNS_WITHIN_TABLE
+                metric_name: Payment Method ID less than Customer ID
+                parameters:
+                  - key: column1
+                    column_name: PAYMENT_METHOD_ID
+                  - key: comparison_operator
+                    string_value: '<'
+                  - key: column2
+                    column_name: CUSTOMER_ID
+          - column_name: CUSTOMER_ID
+            metrics:
+              - saved_metric_id: COLUMN_CONTAINS_VALUES
+                metric_name: Negative Foreign Keys
+                parameters:
+                  - key: list
+                    string_value: "-1"
+                rct_overrides: [ ORDER_TIMESAMP ]
+                lookback:
+                  lookback_type: METRIC_TIME
+                  lookback_window:
+                    interval_type: DAYS
+                    interval_value: 2
+          - column_name: PRODUCT_TYPE
+            metrics:
+              - saved_metric_id: COMPLETENESS_ANOMALIES

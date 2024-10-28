@@ -12,3 +12,23 @@ saved_metric_definitions:
       threshold:
         type: CONSTANT
         lower_bound: 1
+    # 2
+    - saved_metric_id: NO_NULLS_ALLOWED
+      metric_type:
+        type: PREDEFINED
+        predefined_metric: COUNT_NULL
+      metric_name: Completeness (Hard Check)
+      description: Requires that field contain a value.  Will alert if any null values are detected.
+      threshold:
+        type: CONSTANT
+        upper_bound: 0
+    # 3
+    - saved_metric_id: COMPLETENESS_ANOMALIES
+      metric_type:
+        type: PREDEFINED
+        predefined_metric: COUNT_NULL
+      metric_name: Completeness 
+      description: Alert on any sudden changes in the number of null values.
+      threshold:
+        type: AUTO
+        sensitivity: MEDIUM

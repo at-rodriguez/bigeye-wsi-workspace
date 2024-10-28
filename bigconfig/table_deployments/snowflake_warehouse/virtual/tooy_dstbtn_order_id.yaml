@@ -1,0 +1,14 @@
+type: BIGCONFIG_FILE
+
+table_deployments:
+  - collection:
+      name: TOOY_DSTBTN_ORDER_ID Checks 
+      notification_channels:
+        - email: operations@bigeye.com
+        - slack: '#operations'
+    deployments:
+      - fq_table_name: snowflake_warehouse.Bigeye Virtual Schema.TOOY_DSTBTN_ORDER_ID
+        columns:
+          - column_name: ORDER_ID
+            metrics:
+              - saved_metric_id: DUPLICATES_ANOMALIES
